@@ -12,13 +12,13 @@ public class SignUpServlet extends HttpServlet {
     public void doGet(HttpServletRequest request,
                       HttpServletResponse response) throws IOException {
         HashMap<String, Object> data = new HashMap<>();
-        data.put("process", "signUp");
+        data.put("process", "signup");
         response.getWriter().println(PageGenerator.instance().getPage("authorization", data));
     }
 
     public void doPost(HttpServletRequest request,
                        HttpServletResponse response) throws IOException {
-        AccountService.instance().signUp(request.getParameter("login"), request.getParameter("pass"));
+        AccountService.instance().signUp(request.getParameter("login"), request.getParameter("password"));
         response.sendRedirect("/");
     }
 }

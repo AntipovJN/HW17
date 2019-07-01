@@ -12,18 +12,18 @@ public class SignInServlet extends HttpServlet {
     public void doGet(HttpServletRequest request,
                       HttpServletResponse response) throws IOException {
         HashMap<String, Object> data = new HashMap<>();
-        data.put("process", "signIn");
+        data.put("process", "signin");
         response.getWriter().println(PageGenerator.instance().getPage("authorization", data));
 
     }
 
     public void doPost(HttpServletRequest request,
                        HttpServletResponse response) throws IOException {
-        if(AccountService.instance().signIn(request.getParameter("login"), request.getParameter("pass"))) {
-            response.setStatus(200);
+        if(AccountService.instance().signIn(request.getParameter("login"), request.getParameter("password"))) {
+            response.setStatus(HttpServletResponse.SC_OK);
             response.getWriter().println("Authorized: " + AccountService.instance().getUser().getLogin());
         }else{
-            response.setStatus(401);
+            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             response.getWriter().println("Unauthorized");
         }
 

@@ -22,8 +22,8 @@ public class Main {
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
         context.addServlet(new ServletHolder(mainPageServlet),"/");
         context.addServlet(new ServletHolder(mirrorServlet),"/mirror");
-        context.addServlet(new ServletHolder(signInServlet),"/signIn");
-        context.addServlet(new ServletHolder(signUpServlet),"/signUp");
+        context.addServlet(new ServletHolder(signInServlet),"/signin");
+        context.addServlet(new ServletHolder(signUpServlet),"/signup");
 
         Server server = new Server(8080);
         server.setHandler(context);
