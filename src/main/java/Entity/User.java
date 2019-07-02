@@ -1,45 +1,49 @@
 package Entity;
 
-public class User {
-    private String login;
-    private String pass;
+import javax.persistence.*;
 
-    public User(String login, String pass) {
+@Entity
+@Table(name = "test_user")
+public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private int id;
+    @Column(name = "login")
+    private String login;
+    @Column(name = "password")
+    private String password;
+
+
+    public User() {
+    }
+
+    public User(String login, String password) {
         this.login = login;
-        this.pass = pass;
+        this.password = password;
     }
 
     public String getLogin() {
         return login;
     }
 
-    public String getPass() {
-        return pass;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        User user = (User) o;
-
-        if (getLogin() != null ? !getLogin().equals(user.getLogin()) : user.getLogin() != null) return false;
-        return getPass() != null ? getPass().equals(user.getPass()) : user.getPass() == null;
+    public String getPassword() {
+        return password;
     }
 
-    @Override
-    public int hashCode() {
-        int result = getLogin() != null ? getLogin().hashCode() : 0;
-        result = 31 * result + (getPass() != null ? getPass().hashCode() : 0);
-        return result;
+    public int getId() {
+        return id;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "login='" + login + '\'' +
-                ", pass='" + pass + '\'' +
-                '}';
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

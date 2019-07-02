@@ -8,10 +8,10 @@ import servlets.SignUpServlet;
 
 /**
  * @author v.chibrikov
- *         <p>
- *         Пример кода для курса на https://stepic.org/
- *         <p>
- *         Описание курса и лицензия: https://github.com/vitaly-chibrikov/stepic_java_webserver
+ * <p>
+ * Пример кода для курса на https://stepic.org/
+ * <p>
+ * Описание курса и лицензия: https://github.com/vitaly-chibrikov/stepic_java_webserver
  */
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -20,10 +20,10 @@ public class Main {
         SignInServlet signInServlet = new SignInServlet();
         SignUpServlet signUpServlet = new SignUpServlet();
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
-        context.addServlet(new ServletHolder(mainPageServlet),"/");
-        context.addServlet(new ServletHolder(mirrorServlet),"/mirror");
-        context.addServlet(new ServletHolder(signInServlet),"/signin");
-        context.addServlet(new ServletHolder(signUpServlet),"/signup");
+        context.addServlet(new ServletHolder(mainPageServlet), "/");
+        context.addServlet(new ServletHolder(mirrorServlet), "/mirror");
+        context.addServlet(new ServletHolder(signInServlet), "/signin");
+        context.addServlet(new ServletHolder(signUpServlet), "/signup");
 
         Server server = new Server(8080);
         server.setHandler(context);

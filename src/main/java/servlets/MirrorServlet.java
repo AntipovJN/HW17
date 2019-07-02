@@ -11,4 +11,3 @@ public class MirrorServlet extends HttpServlet {
         response.getWriter().println(request.getParameter("key"));
     }
 }
-
